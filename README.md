@@ -42,5 +42,5 @@ In qualsiasi area dell’applicazione cliccando sul logo in alto a sinistra o sp
 -	Logout: pulisce i dati dell’utente e torna alla schermata di login
 
 Librerie esterne<br/>
-	Ngx-cookie-service – ng2-google-charts – bootstrap 3 - angular-in-memory-web-api
+	ngx-cookie-service – ng2-google-charts – bootstrap 3 - angular-in-memory-web-api
 

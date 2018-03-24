@@ -49,7 +49,7 @@ export class NotifyBarComponent implements OnInit {
   }
 
   private NotificationToShowInit() : void {
-    this.notificationToShow = this.notification.filter(notify => notify.show === true);
+    this.notificationToShow = this.notification.filter(notify => notify.show === true && notify.read === false);
   }
 
   //Update Data every 60 sec 

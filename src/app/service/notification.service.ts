@@ -27,7 +27,7 @@ export class NotificationService {
    * ONLY FOR DYNAMIC PRESENTATION
    */
   private cont : number = 0;
-  private id : number = 2;
+  private id : number = 4;
   public addNotify() : void {
     setInterval(() => {
       var notify : Notify = null;
@@ -65,6 +65,7 @@ export class NotificationService {
   }
 
   public readNotify(notify : Notify) : void {
+    notify.read = true;
     this.http.put(NOTIFICATION, notify, this.httpOptions).pipe(
       tap(_ => console.log("Notify "+notify.id+" read")),
       catchError(this.handleError<any>('NOTIFY_PUT'))
@@ -90,4 +91,7 @@ export class NotificationService {
 }
 
 const notify0 = new Notify(0,'Successo!','Notifica azione eseguita con successo',"success",true,false,new Date(), "Admin",false);
-export const NOTIFICATION_RESPONSE : Notify[] = [notify0 ];
+const notify1 = new Notify(1,'Critico!','Notifica importante di situazione critica',"danger",true,false,new Date(), "Admin",false);
+const notify2 = new Notify(2,'Attenzione!','Siamo vicini ad una situazione critica',"warning",true,false,new Date(), "Admin",false);
+const notify3 = new Notify(3,'Comunicazione','Comunicazione standard all\'utente',"default",true,false,new Date(), "Admin",false);
+export const NOTIFICATION_RESPONSE : Notify[] = [notify0, notify1, notify2, notify3 ];

@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-xs-12 col-md-12 col-sm-7 col-sm-offset-1" [ngSwitch]="chartFlag">
+      <div class="row visible-xs text-center" >
+          <div class="col-xs-1"></div>
+          <div class="panel col-xs-3 composition-nav" style="cursor: pointer;" [class.panel-primary]="chartFlag == 1" [class.panel-info]="chartFlag != 1" (click)="chartFlag = 1">
+              <div class="panel-heading">quantità</div>
+          </div>
+          <div class="panel col-xs-3 composition-nav" style="cursor: pointer;" [class.panel-primary]="chartFlag == 2" [class.panel-info]="chartFlag != 2" (click)="chartFlag = 2">
+              <div class="panel-heading">durata</div>
+          </div>
+          <div class="panel col-xs-3 composition-nav" style="cursor: pointer;" [class.panel-primary]="chartFlag == 3" [class.panel-info]="chartFlag != 3" (click)="chartFlag = 3">
+              <div class="panel-heading">costo</div>
+          </div>
+        </div>
+      <google-chart *ngSwitchCase="1" [data]="compositionQnt"></google-chart>
+      <google-chart *ngSwitchCase="2" [data]="compositionDur"></google-chart>
+      <google-chart *ngSwitchCase="3" [data]="compositionCost"></google-chart>
+      <ul class="nav nav-pills nav-justified hidden-sm hidden-xs" style="cursor: pointer;">
+          <li [class.active]="chartFlag == 1" (click)="chartFlag = 1">
+              <a>quantità</a>
+          </li>
+          <li [class.active]="chartFlag == 2" (click)="chartFlag = 2">
+              <a>durata (min)</a>
+          </li>
+          <li [class.active]="chartFlag == 3 " (click)="chartFlag = 3">
+              <a>costo (€)</a>
+          </li>
+      </ul>
+  </div>
+  <div class="col-sm-3 visible-sm">
+      <ul class="nav nav-pills nav-stacked " style="cursor: pointer;">
+          <li [class.active]="chartFlag == 1" (click)="chartFlag = 1">
+              <a>quantità</a>
+          </li>
+          <li [class.active]="chartFlag == 2" (click)="chartFlag = 2">
+              <a>durata (min)</a>
+          </li>
+          <li [class.active]="chartFlag == 3 " (click)="chartFlag = 3">
+              <a>costo (€)</a>
+          </li>
+      </ul>
+  </div>
+</div>
+

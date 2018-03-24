@@ -1,0 +1,537 @@
+import { Injectable } from '@angular/core';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { UserDataService } from './user-data.service';
+import { Observable } from 'rxjs/Observable';
+import { Transaction } from '../model/transaction';
+import { TRANSACTIONS } from '../const/const';
+import { tap, catchError } from 'rxjs/operators';
+import { of } from 'rxjs/observable/of';
+
+@Injectable()
+export class TransactionsService {
+  private token : string;
+  private httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+
+  constructor(
+    private http : HttpClient,
+    private dataService : UserDataService
+  ) {
+    this.token = dataService.getToken();
+  }
+
+  public getTransactions() : Observable<Transaction[]> {
+    return this.http.get<Transaction[]>(TRANSACTIONS)
+    .pipe(
+      tap(result => console.log("TRANSACTIONS")),
+      catchError(this.handleError<Transaction[]>('TRANSACTIONS_GET', null))
+    );
+  }
+
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(operation);
+      console.error(error);
+      return of(result as T);
+    };
+  }
+}
+
+var id : number = 0;
+export const TRANSACTIONS_RESPOSE : Transaction[] = [
+  {
+    id : id++,
+    transactionDay : new Date(new Date().getTime() - 24 * 60 * 60 * 1000),
+    amount : 838.27,
+    type : "CallBilling",
+    service :  "#Phones PayXUse",
+    description : "Billing of an inbound or outbound call",
+    serviceDay : new Date(new Date().getTime() - 24 * 60 * 60 * 1000),
+
+    inNaz_Qnt : 215,
+    inNaz_Dur : 1075,
+    inNaz_Cost : 53.75,
+    inMob_Qnt : 838,
+    inMob_Dur : 5866,
+    inMob_Cost : 293.3,
+    inInt_Qnt : 261,
+    inInt_Dur : 1566,
+    inInt_Cost : 125.28,
+
+    outNaz_Qnt : 300,
+    outNaz_Dur : 1500,
+    outNaz_Cost : 75,
+    outMob_Qnt : 447,
+    outMob_Dur : 894,
+    outMob_Cost : 44.7,
+    outInt_Qnt : 476,
+    outInt_Dur : 1428,
+    outInt_Cost : 114.24,
+    inTot_Qnt : 1679,
+    inTot_Dur : 8872,
+    inTot_Cost : 501.53,
+    outTot_Qnt : 1480,
+    outTot_Dur : 5107,
+    outTot_Cost : 336.74,
+
+    extended : false,
+    details : false
+  },
+  {
+    id : id++,
+    transactionDay : new Date(new Date().getTime() - 24 * 60 * 60 * 1000),
+    amount : 838.27,
+    type : "CallBilling",
+    service :  "#Phones PayXUse",
+    description : "Billing of an inbound or outbound call",
+    serviceDay : new Date(new Date().getTime() - 24 * 60 * 60 * 1000),
+
+    inNaz_Qnt : 215,
+    inNaz_Dur : 1075,
+    inNaz_Cost : 53.75,
+    inMob_Qnt : 838,
+    inMob_Dur : 5866,
+    inMob_Cost : 293.3,
+    inInt_Qnt : 261,
+    inInt_Dur : 1566,
+    inInt_Cost : 125.28,
+
+    outNaz_Qnt : 300,
+    outNaz_Dur : 1500,
+    outNaz_Cost : 75,
+    outMob_Qnt : 447,
+    outMob_Dur : 894,
+    outMob_Cost : 44.7,
+    outInt_Qnt : 476,
+    outInt_Dur : 1428,
+    outInt_Cost : 114.24,
+    inTot_Qnt : 1679,
+    inTot_Dur : 8872,
+    inTot_Cost : 501.53,
+    outTot_Qnt : 1480,
+    outTot_Dur : 5107,
+    outTot_Cost : 336.74,
+
+    extended : false,
+    details : false
+  },
+  {
+    id : id++,
+    transactionDay : new Date(new Date().getTime() - 24 * 60 * 60 * 1000),
+    amount : 838.27,
+    type : "CallBilling",
+    service :  "#Phones PayXUse",
+    description : "Billing of an inbound or outbound call",
+    serviceDay : new Date(new Date().getTime() - 24 * 60 * 60 * 1000),
+
+    inNaz_Qnt : 215,
+    inNaz_Dur : 1075,
+    inNaz_Cost : 53.75,
+    inMob_Qnt : 838,
+    inMob_Dur : 5866,
+    inMob_Cost : 293.3,
+    inInt_Qnt : 261,
+    inInt_Dur : 1566,
+    inInt_Cost : 125.28,
+
+    outNaz_Qnt : 300,
+    outNaz_Dur : 1500,
+    outNaz_Cost : 75,
+    outMob_Qnt : 447,
+    outMob_Dur : 894,
+    outMob_Cost : 44.7,
+    outInt_Qnt : 476,
+    outInt_Dur : 1428,
+    outInt_Cost : 114.24,
+    inTot_Qnt : 1679,
+    inTot_Dur : 8872,
+    inTot_Cost : 501.53,
+    outTot_Qnt : 1480,
+    outTot_Dur : 5107,
+    outTot_Cost : 336.74,
+
+    extended : false,
+    details : false
+  },
+  {
+    id : id++,
+    transactionDay : new Date(new Date().getTime() - 24 * 60 * 60 * 1000),
+    amount : 838.27,
+    type : "CallBilling",
+    service :  "#Phones PayXUse",
+    description : "Billing of an inbound or outbound call",
+    serviceDay : new Date(new Date().getTime() - 24 * 60 * 60 * 1000),
+
+    inNaz_Qnt : 215,
+    inNaz_Dur : 1075,
+    inNaz_Cost : 53.75,
+    inMob_Qnt : 838,
+    inMob_Dur : 5866,
+    inMob_Cost : 293.3,
+    inInt_Qnt : 261,
+    inInt_Dur : 1566,
+    inInt_Cost : 125.28,
+
+    outNaz_Qnt : 300,
+    outNaz_Dur : 1500,
+    outNaz_Cost : 75,
+    outMob_Qnt : 447,
+    outMob_Dur : 894,
+    outMob_Cost : 44.7,
+    outInt_Qnt : 476,
+    outInt_Dur : 1428,
+    outInt_Cost : 114.24,
+    inTot_Qnt : 1679,
+    inTot_Dur : 8872,
+    inTot_Cost : 501.53,
+    outTot_Qnt : 1480,
+    outTot_Dur : 5107,
+    outTot_Cost : 336.74,
+
+    extended : false,
+    details : false
+  },
+  {
+    id : id++,
+    transactionDay : new Date(new Date().getTime() - 24 * 60 * 60 * 1000),
+    amount : 838.27,
+    type : "CallBilling",
+    service :  "#Phones PayXUse",
+    description : "Billing of an inbound or outbound call",
+    serviceDay : new Date(new Date().getTime() - 24 * 60 * 60 * 1000),
+
+    inNaz_Qnt : 215,
+    inNaz_Dur : 1075,
+    inNaz_Cost : 53.75,
+    inMob_Qnt : 838,
+    inMob_Dur : 5866,
+    inMob_Cost : 293.3,
+    inInt_Qnt : 261,
+    inInt_Dur : 1566,
+    inInt_Cost : 125.28,
+
+    outNaz_Qnt : 300,
+    outNaz_Dur : 1500,
+    outNaz_Cost : 75,
+    outMob_Qnt : 447,
+    outMob_Dur : 894,
+    outMob_Cost : 44.7,
+    outInt_Qnt : 476,
+    outInt_Dur : 1428,
+    outInt_Cost : 114.24,
+    inTot_Qnt : 1679,
+    inTot_Dur : 8872,
+    inTot_Cost : 501.53,
+    outTot_Qnt : 1480,
+    outTot_Dur : 5107,
+    outTot_Cost : 336.74,
+
+    extended : false,
+    details : false
+  },
+  {
+    id : id++,
+    transactionDay : new Date(new Date().getTime() - 24 * 60 * 60 * 1000),
+    amount : 838.27,
+    type : "CallBilling",
+    service :  "#Phones PayXUse",
+    description : "Billing of an inbound or outbound call",
+    serviceDay : new Date(new Date().getTime() - 24 * 60 * 60 * 1000),
+
+    inNaz_Qnt : 215,
+    inNaz_Dur : 1075,
+    inNaz_Cost : 53.75,
+    inMob_Qnt : 838,
+    inMob_Dur : 5866,
+    inMob_Cost : 293.3,
+    inInt_Qnt : 261,
+    inInt_Dur : 1566,
+    inInt_Cost : 125.28,
+
+    outNaz_Qnt : 300,
+    outNaz_Dur : 1500,
+    outNaz_Cost : 75,
+    outMob_Qnt : 447,
+    outMob_Dur : 894,
+    outMob_Cost : 44.7,
+    outInt_Qnt : 476,
+    outInt_Dur : 1428,
+    outInt_Cost : 114.24,
+    inTot_Qnt : 1679,
+    inTot_Dur : 8872,
+    inTot_Cost : 501.53,
+    outTot_Qnt : 1480,
+    outTot_Dur : 5107,
+    outTot_Cost : 336.74,
+
+    extended : false,
+    details : false
+  },
+  {
+    id : id++,
+    transactionDay : new Date(new Date().getTime() - 24 * 60 * 60 * 1000),
+    amount : 838.27,
+    type : "CallBilling",
+    service :  "#Phones PayXUse",
+    description : "Billing of an inbound or outbound call",
+    serviceDay : new Date(new Date().getTime() - 24 * 60 * 60 * 1000),
+
+    inNaz_Qnt : 215,
+    inNaz_Dur : 1075,
+    inNaz_Cost : 53.75,
+    inMob_Qnt : 838,
+    inMob_Dur : 5866,
+    inMob_Cost : 293.3,
+    inInt_Qnt : 261,
+    inInt_Dur : 1566,
+    inInt_Cost : 125.28,
+
+    outNaz_Qnt : 300,
+    outNaz_Dur : 1500,
+    outNaz_Cost : 75,
+    outMob_Qnt : 447,
+    outMob_Dur : 894,
+    outMob_Cost : 44.7,
+    outInt_Qnt : 476,
+    outInt_Dur : 1428,
+    outInt_Cost : 114.24,
+    inTot_Qnt : 1679,
+    inTot_Dur : 8872,
+    inTot_Cost : 501.53,
+    outTot_Qnt : 1480,
+    outTot_Dur : 5107,
+    outTot_Cost : 336.74,
+
+    extended : false,
+    details : false
+  },
+  {
+    id : id++,
+    transactionDay : new Date(new Date().getTime() - 24 * 60 * 60 * 1000),
+    amount : 838.27,
+    type : "CallBilling",
+    service :  "#Phones PayXUse",
+    description : "Billing of an inbound or outbound call",
+    serviceDay : new Date(new Date().getTime() - 24 * 60 * 60 * 1000),
+
+    inNaz_Qnt : 215,
+    inNaz_Dur : 1075,
+    inNaz_Cost : 53.75,
+    inMob_Qnt : 838,
+    inMob_Dur : 5866,
+    inMob_Cost : 293.3,
+    inInt_Qnt : 261,
+    inInt_Dur : 1566,
+    inInt_Cost : 125.28,
+
+    outNaz_Qnt : 300,
+    outNaz_Dur : 1500,
+    outNaz_Cost : 75,
+    outMob_Qnt : 447,
+    outMob_Dur : 894,
+    outMob_Cost : 44.7,
+    outInt_Qnt : 476,
+    outInt_Dur : 1428,
+    outInt_Cost : 114.24,
+    inTot_Qnt : 1679,
+    inTot_Dur : 8872,
+    inTot_Cost : 501.53,
+    outTot_Qnt : 1480,
+    outTot_Dur : 5107,
+    outTot_Cost : 336.74,
+
+    extended : false,
+    details : false
+  },
+  {
+    id : id++,
+    transactionDay : new Date(new Date().getTime() - 24 * 60 * 60 * 1000),
+    amount : 838.27,
+    type : "CallBilling",
+    service :  "#Phones PayXUse",
+    description : "Billing of an inbound or outbound call",
+    serviceDay : new Date(new Date().getTime() - 24 * 60 * 60 * 1000),
+
+    inNaz_Qnt : 215,
+    inNaz_Dur : 1075,
+    inNaz_Cost : 53.75,
+    inMob_Qnt : 838,
+    inMob_Dur : 5866,
+    inMob_Cost : 293.3,
+    inInt_Qnt : 261,
+    inInt_Dur : 1566,
+    inInt_Cost : 125.28,
+
+    outNaz_Qnt : 300,
+    outNaz_Dur : 1500,
+    outNaz_Cost : 75,
+    outMob_Qnt : 447,
+    outMob_Dur : 894,
+    outMob_Cost : 44.7,
+    outInt_Qnt : 476,
+    outInt_Dur : 1428,
+    outInt_Cost : 114.24,
+    inTot_Qnt : 1679,
+    inTot_Dur : 8872,
+    inTot_Cost : 501.53,
+    outTot_Qnt : 1480,
+    outTot_Dur : 5107,
+    outTot_Cost : 336.74,
+
+    extended : false,
+    details : false
+  },
+  {
+    id : id++,
+    transactionDay : new Date(new Date().getTime() - 24 * 60 * 60 * 1000),
+    amount : 838.27,
+    type : "CallBilling",
+    service :  "#Phones PayXUse",
+    description : "Billing of an inbound or outbound call",
+    serviceDay : new Date(new Date().getTime() - 24 * 60 * 60 * 1000),
+
+    inNaz_Qnt : 215,
+    inNaz_Dur : 1075,
+    inNaz_Cost : 53.75,
+    inMob_Qnt : 838,
+    inMob_Dur : 5866,
+    inMob_Cost : 293.3,
+    inInt_Qnt : 261,
+    inInt_Dur : 1566,
+    inInt_Cost : 125.28,
+
+    outNaz_Qnt : 300,
+    outNaz_Dur : 1500,
+    outNaz_Cost : 75,
+    outMob_Qnt : 447,
+    outMob_Dur : 894,
+    outMob_Cost : 44.7,
+    outInt_Qnt : 476,
+    outInt_Dur : 1428,
+    outInt_Cost : 114.24,
+    inTot_Qnt : 1679,
+    inTot_Dur : 8872,
+    inTot_Cost : 501.53,
+    outTot_Qnt : 1480,
+    outTot_Dur : 5107,
+    outTot_Cost : 336.74,
+
+    extended : false,
+    details : false
+  },
+  {
+    id : id++,
+    transactionDay : new Date(new Date().getTime() - 24 * 60 * 60 * 1000),
+    amount : 838.27,
+    type : "CallBilling",
+    service :  "#Phones PayXUse",
+    description : "Billing of an inbound or outbound call",
+    serviceDay : new Date(new Date().getTime() - 24 * 60 * 60 * 1000),
+
+    inNaz_Qnt : 215,
+    inNaz_Dur : 1075,
+    inNaz_Cost : 53.75,
+    inMob_Qnt : 838,
+    inMob_Dur : 5866,
+    inMob_Cost : 293.3,
+    inInt_Qnt : 261,
+    inInt_Dur : 1566,
+    inInt_Cost : 125.28,
+
+    outNaz_Qnt : 300,
+    outNaz_Dur : 1500,
+    outNaz_Cost : 75,
+    outMob_Qnt : 447,
+    outMob_Dur : 894,
+    outMob_Cost : 44.7,
+    outInt_Qnt : 476,
+    outInt_Dur : 1428,
+    outInt_Cost : 114.24,
+    inTot_Qnt : 1679,
+    inTot_Dur : 8872,
+    inTot_Cost : 501.53,
+    outTot_Qnt : 1480,
+    outTot_Dur : 5107,
+    outTot_Cost : 336.74,
+
+    extended : false,
+    details : false
+  },
+  {
+    id : id++,
+    transactionDay : new Date(new Date().getTime() - 24 * 60 * 60 * 1000),
+    amount : 838.27,
+    type : "CallBilling",
+    service :  "#Phones PayXUse",
+    description : "Billing of an inbound or outbound call",
+    serviceDay : new Date(new Date().getTime() - 24 * 60 * 60 * 1000),
+
+    inNaz_Qnt : 215,
+    inNaz_Dur : 1075,
+    inNaz_Cost : 53.75,
+    inMob_Qnt : 838,
+    inMob_Dur : 5866,
+    inMob_Cost : 293.3,
+    inInt_Qnt : 261,
+    inInt_Dur : 1566,
+    inInt_Cost : 125.28,
+
+    outNaz_Qnt : 300,
+    outNaz_Dur : 1500,
+    outNaz_Cost : 75,
+    outMob_Qnt : 447,
+    outMob_Dur : 894,
+    outMob_Cost : 44.7,
+    outInt_Qnt : 476,
+    outInt_Dur : 1428,
+    outInt_Cost : 114.24,
+    inTot_Qnt : 1679,
+    inTot_Dur : 8872,
+    inTot_Cost : 501.53,
+    outTot_Qnt : 1480,
+    outTot_Dur : 5107,
+    outTot_Cost : 336.74,
+
+    extended : false,
+    details : false
+  },
+  {
+    id : id++,
+    transactionDay : new Date(new Date().getTime() - 24 * 60 * 60 * 1000),
+    amount : 838.27,
+    type : "CallBilling",
+    service :  "#Phones PayXUse",
+    description : "Billing of an inbound or outbound call",
+    serviceDay : new Date(new Date().getTime() - 24 * 60 * 60 * 1000),
+
+    inNaz_Qnt : 215,
+    inNaz_Dur : 1075,
+    inNaz_Cost : 53.75,
+    inMob_Qnt : 838,
+    inMob_Dur : 5866,
+    inMob_Cost : 293.3,
+    inInt_Qnt : 261,
+    inInt_Dur : 1566,
+    inInt_Cost : 125.28,
+
+    outNaz_Qnt : 300,
+    outNaz_Dur : 1500,
+    outNaz_Cost : 75,
+    outMob_Qnt : 447,
+    outMob_Dur : 894,
+    outMob_Cost : 44.7,
+    outInt_Qnt : 476,
+    outInt_Dur : 1428,
+    outInt_Cost : 114.24,
+    inTot_Qnt : 1679,
+    inTot_Dur : 8872,
+    inTot_Cost : 501.53,
+    outTot_Qnt : 1480,
+    outTot_Dur : 5107,
+    outTot_Cost : 336.74,
+
+    extended : false,
+    details : false
+  },
+];

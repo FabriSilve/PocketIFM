@@ -1,0 +1,16 @@
+<router-outlet></router-outlet>
+
+<div class="eupopup-container eupopup-container-bottomright" style="display: block;" *ngIf="showCookieAlert">
+    <div class="eupopup-head">
+        Questo sito utilizza i cookies
+    </div>
+    <div class="eupopup-body">
+        Utilizziamo i cookie per migliorare la tua esperienza di navigazione sulle pagine di questo sito. Per vedere quali cookie utilizziamo e quali sono di terze parti visita la nostra pagina dedicata. Informativa ai sensi dell’art. 13 D.LGS. 30 giugno 2003 n.196.
+    </div>
+    <div class="eupopup-buttons">
+        <a (click)="closeCookieAlert()" class="eupopup-button eupopup-button_1">Accetta</a> <!-- onlclick hide -->
+        <a href="https://www.ifmcommunications.it/it/CookiePolicy" target="_blank" class="eupopup-button eupopup-button_2">Leggi di più</a>
+        <div class="clearfix"></div>
+    </div>
+    <a (click)="closeCookieAlert()" class="eupopup-closebutton">x</a> <!-- onclick hide -->
+</div>

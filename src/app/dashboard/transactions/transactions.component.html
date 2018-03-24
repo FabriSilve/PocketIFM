@@ -1,0 +1,16 @@
+<div class="container" *ngIf="transactions != null" >
+  <div class="row">
+      <div class="col-md-7" *ngIf="transactions" >
+          <h3 class="days">Ultime Transazioni</h3>
+          <hr>
+          <transactions-table  [transactions]="transactions" (idEmitter)="handleIdEmitter($event)"></transactions-table>
+      </div>
+      <hr class="visible-xs">
+      <div class="col-md-5">
+          <h3 class="days text-right">Composizione Traffico</h3>
+          <hr>
+          <br>
+          <transactions-chart [transaction]="transactionForComposition"></transactions-chart>
+      </div>
+  </div>
+</div>

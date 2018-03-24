@@ -1,0 +1,89 @@
+.notification-container {
+    position:absolute;
+    top:55px;
+    left: 3%;
+    z-index: 2;
+    width:40%;
+    min-width: 200px;
+    max-width: 400px;
+    text-align: center;
+}
+
+.notify {
+    padding: 8px 35px 8px 14px;
+    margin-bottom: 10px;
+    border: 1px solid #fbeed5;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    opacity: 0;
+    animation: fadeIn 1s linear forwards;
+    animation-delay: 1s;
+}
+
+.close-all {
+    background-color: rgba(189, 189, 189, 0.856);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    animation: fadeIn 1s linear forwards;
+    animation-delay: 1s;
+}
+
+.closeX {
+    margin-top: -5px;
+    margin-right: -10px;
+    margin-right: 5px;
+}
+
+.closeX a {
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.closeX a:hover {
+    text-decoration: none;
+}
+
+.notify-success {
+    background-color: rgba(180, 250, 159, 0.856);
+}
+
+.notify-default {
+    background-color: rgba(159, 180, 250, 0.856);
+}
+
+.notify-warning {
+    background-color: rgba(250, 221, 159, 0.856);
+}
+
+.notify-danger {
+    background-color: rgba(250, 159, 159, 0.856);
+}
+
+.notify .link {
+    font-weight: bold;
+    color: grey;
+}
+
+.notify .link:hover {
+    text-decoration: none;
+    font-size: 110%;
+}
+
+.fadeOut {
+    opacity: 1;
+    animation: fadeOut 0.5s linear forwards;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1}
+  60% { opacity: 0}
+  100% { opacity: 0 ; display: none; padding : 0; margin : 0; height : 0}
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0}
+    100% { opacity: 1}
+}

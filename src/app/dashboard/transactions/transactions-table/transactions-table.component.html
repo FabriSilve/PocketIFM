@@ -1,0 +1,43 @@
+
+<div class="table-responsive">
+  <table *ngIf="transactions" class="table ">
+      <thead class="align-center">
+          <tr>
+              <th></th>
+              <th>data</th>
+              <th class="text-center">importo</th>
+              <th>tipo</th>
+              <th>servizio</th>     
+          </tr>
+      </thead>
+  </table>
+  <div id="table-box">
+      <table *ngIf="transactions" class="table table-bordered table-hover">
+          <tbody *ngFor="let transaction of transactions.slice(0,numberOfTransactions)">
+              <tr style="cursor: pointer;" (click)="transaction.extended = !transaction.extended; closeOther(transaction.id);"
+                  [class.active]="transaction.id == idTransaction">
+                  <td>{{transaction.transactionDay | date:'d/M/y - HH:mm'}}</td>
+                  <td>{{transaction.amount | currency:'EUR':'true'}}</td>
+                  <td><span [class.text-success]="transaction.type == 'Recharge'"> {{transaction.type}}</span></td>
+                  <th><span *ngIf="transaction.type != 'Recharge'">{{transaction.service}}</span></th>
+              </tr>
+              <tr *ngIf="transaction.extended && transaction.type != 'Recharge'">
+                  <td colspan="3">{{transaction.description}}</td>
+                  <td>
+                      <a class="btn btn-info" href="#" target="_blank"><i class="glyphicon glyphicon-info"></i>Dettagli</a> <!--"{{server_transaction}}/{{transaction.id}}/IFM_TransactionDetails_{{transaction.id}}.pdf"-->
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+    <div class="text-center">
+        <a *ngIf="numberOfTransactions == 10" (click)="numberOfTransactions = 20" style="cursor: pointer;"><h3><i class="glyphicon glyphicon-chevron-down"></i></h3></a>
+        <a *ngIf="numberOfTransactions == 20" (click)="numberOfTransactions = 10" style="cursor: pointer;"><h3><i class="glyphicon glyphicon-chevron-up"></i></h3></a>
+    </div>
+</div>
+
+
+
+
+
+

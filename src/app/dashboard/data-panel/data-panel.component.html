@@ -1,0 +1,122 @@
+
+  <div class="container-fluid" *ngIf="dailyDataServer">
+    <div class="row">
+        <div class="col-md-7 col-md-offset-1">
+            <div class="row">
+                <span class="col-xs-6">
+                    <h4 class="text-center days">performance</h4>
+                    <gauge [value]="dailyDataServer.performance"></gauge>
+                    <div class="row text-center" *ngIf="daysLeft">
+                        <i class="days number"> {{daysLeft}}</i><i class="days text"> giorni<span class="hidden-xs">  previsti</span></i>
+                    </div>
+                </span>
+                <span class="col-xs-6">
+                    <h4 class="text-center days">credito</h4>
+                    <gauge [value]="dailyDataServer.credit"></gauge>
+                    <div class="row text-center" *ngIf="until">
+                        <i class="days text"><span class="hidden-xs">scadenza </span></i><i class="days number">{{until | date:'d MMM'}}</i>
+                    </div>
+                </span>
+            </div>
+        </div>
+        <hr class="visible-xs">
+        <div class="col-md-3">
+            <div class="row text-center">
+                <i class="days text"> statistiche di </i><i class="days number">oggi</i>
+            </div>
+            <div class="panel-group hidden-xs hidden-sm">
+                <div class="panel" style="cursor: pointer;" [class.panel-primary]="durActive == false" [class.panel-info]="durActive == true" (click)="dailyDataClick(false);">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="daily-icon glyphicon glyphicon-earphone"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="days number">
+                                    {{quantity}}
+                                </div>
+                                <div class="days text">
+                                    chiamate
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel" style="cursor: pointer;" [class.panel-primary]="durActive == true" [class.panel-info]="durActive == false" (click)="dailyDataClick(true);">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="daily-icon glyphicon glyphicon-time"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="days number">
+                                    {{durations}}
+                                </div>
+                                <div class="days text">
+                                    minuti
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row visible-xs visible-sm">
+              <span class="col-xs-6">
+                  <div class="panel" style="cursor: pointer;" [class.panel-primary]="durActive == false" [class.panel-info]="durActive == true" (click)="dailyDataClick(false);">
+                      <div class="panel-heading">
+                          <div class="row">
+                              <div class="col-xs-3">
+                                  <i class="daily-icon glyphicon glyphicon-earphone"></i>
+                              </div>
+                              <div class="col-xs-9 text-right">
+                                  <div class="days number">
+                                      {{quantity}}
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row text-right" style="padding-right: 15px">
+                              <div class="days text">
+                                  chiamate
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </span>
+              <span class="col-xs-6">
+                  <div class="panel" style="cursor: pointer;" [class.panel-primary]="durActive == true" [class.panel-info]="durActive == false" (click)="dailyDataClick(true);">
+                      <div class="panel-heading">
+                          <div class="row">
+                              <div class="col-xs-3">
+                                  <i class="daily-icon glyphicon glyphicon-time"></i>
+                              </div>
+                              <div class="col-xs-9 text-right">
+                                  <div class="days number">
+                                      {{durations}}
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row text-right" style="padding-right: 15px">
+                              <div class="days text">
+                                  minuti
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <traffic [durActive]="durActive" [trafficFlag]="trafficFlag"></traffic>
+</div>
+<hr class="visible-xs">
+<div class="hidden-xs">
+    <br/><br/>
+</div>
+
+
+
+
+
+

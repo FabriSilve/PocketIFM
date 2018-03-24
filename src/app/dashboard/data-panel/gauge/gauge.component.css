@@ -1,0 +1,106 @@
+.label {
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    height: 40%;
+    background-color: rgba(255, 0, 0, 0);
+    width: 50%;
+    z-index: 5;
+    color: black;
+    text-align: center;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .label { 
+      top: 50%;
+    }
+  }
+  
+  @media only screen and (max-width: 640px) {
+    .label { 
+      top: 40%;
+    }
+  }
+  
+  .label.h1 {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .label-font-size { 
+    font-size: 500%; 
+  }
+  
+  @media only screen and (max-width: 1024px) {
+    .label-font-size { 
+       font-size: 400%; 
+    }
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .label-font-size { 
+       font-size: 300%; 
+    }
+  }
+  
+  @media only screen and (max-width: 640px) {
+    .label-font-size { 
+       font-size: 220%; 
+    }
+  }
+  
+  .gauge {
+      padding-bottom: 50%;
+      position: relative;
+      width: 100%;
+      height: 0;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .gauge:before {
+      content: '';
+      position: absolute;
+      height: 200%;
+      width: 100%;
+      border-radius: 50%;
+      background-color: #a3badbe0;
+    }
+    .gauge:after {
+      content: '';
+      background: #ffffff;
+      position: absolute;
+      top: 40%;
+      right: 20%;
+      bottom: -60%;
+      left: 20%;
+      border-radius: 50%;
+    }
+    .gauge-meter {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      transform-origin: center bottom;
+    }
+  
+    .gauge-meter:before {
+      content: '';
+      position: absolute;
+      height: 200%;
+      width: 100%;
+      border-radius: 50%;
+    }
+  
+    .gauge-default:before {
+      background-color: #3366ff;
+    }
+  
+    .gauge-warning:before {
+      background-color: #f5f250;
+    }
+  
+    .gauge-danger:before {
+      background-color: #fc4848;
+    }
+  
+    

@@ -1,0 +1,62 @@
+<menu></menu>
+
+<div [ngStyle]="containerStyle()">
+  <div class="row" >
+    <div  class="col-md-5 margin-min" [class.height-zero]='notifySelected == null'>
+        <!-- SEARCH BAR -->
+        <div class="row">
+            <div class="col-xs-10 col-xs-offset-1">
+                <form class="search-form">
+                    <div class="form-group has-feedback">
+                      <label for="search" class="sr-only">Search</label>
+                      <input [(ngModel)]="search" type="text" class="form-control" name="search" id="search" autocomplete="off" (keyup)="notificationSearch($event)" placeholder="Cerca parola chiave">
+                      <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                      <span class="glyphicon glyphicon-remove form-control-clear" (click)="clearSearch();"></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="well well-sm margin-min bg-light" style="padding: 20px" *ngIf="notifySelected">
+          <h5 class="text-right">{{notifySelected.date | date: "HH:mm - MMMM d, y"}}</h5>
+          <h3>
+            <strong 
+            [class.text-default]="notifySelected.type=='default'"  
+            [class.text-success]="notifySelected.type=='success'" 
+            [class.text-warning]="notifySelected.type=='warning'" 
+            [class.text-danger]="notifySelected.type=='danger'">
+              {{notifySelected.title}}
+            </strong>
+          </h3>
+          <blockquote>{{notifySelected.body}}</blockquote>
+          <h4 class="text-right"><i>{{notifySelected.from}}</i></h4>
+        </div>
+      </div>
+      <div id="list-box" class="col-md-5 margin-min" *ngIf="notification" [ngStyle]="listStyle()">
+        <div *ngFor="let notify of notificationToShow">
+          <div class="row well well-sm bg-light" (click)="selectNotify(notify.id)">
+              <span class="col-sm-1 col-xs-1 type-box"
+              [class.bg-default]="notify.type=='default'&&notify.read==false"  
+              [class.bg-success]="notify.type=='success'&&notify.read==false" 
+              [class.bg-warning]="notify.type=='warning'&&notify.read==false" 
+              [class.bg-danger]="notify.type=='danger'&&notify.read==false"
+              [class.border-default]="notify.type=='default'&&notify.read==true"  
+              [class.border-success]="notify.type=='success'&&notify.read==true" 
+              [class.border-warning]="notify.type=='warning'&&notify.read==true" 
+              [class.border-danger]="notify.type=='danger'&&notify.read==true">
+              </span>
+              <span class="col-sm-4 col-xs-10">
+                <strong>{{notify.title}}</strong>
+              </span>
+              <span class="col-sm-6 col-sm-offset-0 col-xs-offset-2 col-xs-9 text-right">
+                {{notify.date | date: "HH:mm - MMMM d, y"}}
+              </span>
+              <span class="col-sm-1 col-xs-1 text-right" style="cursor: pointer;" (click)="deleteNotify(notify)">
+                <i class="glyphicon glyphicon-trash"></i>
+              </span>
+            </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+ 

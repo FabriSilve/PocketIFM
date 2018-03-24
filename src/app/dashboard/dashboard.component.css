@@ -1,0 +1,57 @@
+section #first {
+    margin-top: -15px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+section #second {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.parallax { 
+    /* The image used */
+    /*background-image: url("../../assets/notification-light.jpg");*/
+    background-color: blue;
+
+    /* Set a specific height */
+    height: 350px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#back-to-top {
+    padding: 9px 14px 7px 15px;
+    display: block;
+    cursor: pointer;
+    z-index: 10;
+    position: fixed;
+    bottom: 70px;
+    right: 15px;
+    background-color: rgba(0,0,0,.2);
+    font-size: 13px;
+    overflow: hidden;
+}
+
+#back-to-top:before {
+    display: inline-block;
+    color: #fff;
+    font-size: 20px;
+    line-height: 16px;
+    font-family: FontAwesome;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: inherit;
+    -webkit-font-smoothing: antialiased;
+}
+
+/*@media (max-width: 1200px) {
+    #back-to-top {
+        bottom: 70px;
+    }
+}*/
+

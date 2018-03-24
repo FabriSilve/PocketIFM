@@ -1,0 +1,18 @@
+<div *ngIf="notification">
+  <div *ngIf="notificationToShow.length > 0" class="notification-container">
+    <div *ngFor="let notify of notificationToShow">
+      <div class="notify row" [class.fadeOut]="!notify.show"
+        [class.notify-default]="notify.type=='default'"  
+        [class.notify-success]="notify.type=='success'" 
+        [class.notify-warning]="notify.type=='warning'" 
+        [class.notify-danger]="notify.type=='danger'">
+        <span class="closeX">
+          <a (click)="notify.show = !notify.show; close(notify._id)">×</a>
+        </span>
+        <strong>{{notify.title}}</strong> {{notify.body}} <a routerLink="/notification/{{notify.id}}" class="link">read</a>
+      </div>
+    </div>
+    <div *ngIf="notificationToShow.length > 1" class="text-center close-all" (click)="CloseAll()"><strong>chiudi tutto</strong></div> 
+  </div>
+</div>
+

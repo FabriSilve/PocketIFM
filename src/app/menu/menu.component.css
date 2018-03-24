@@ -1,0 +1,74 @@
+/*slide menu*/
+
+.sidenav {
+    height: 100%;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    background-color: rgb(4, 11, 36);
+    overflow-x: hidden;
+    transition: 1.5s;
+    padding-top: 60px;
+    padding-right: 50px;
+}
+
+.sidenav .hide {
+    width: 0;
+}
+
+.sidenav .show {
+    width: 350px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 1.5s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.sidenav .logout {
+    position: absolute;
+    bottom: 20px;
+}
+
+
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.menu-logo {
+    position: relative;
+    top: -15px;
+    left: -20px;
+    color: rgb(5, 23, 88);
+    font-size:30px;
+    cursor:pointer; 
+    /*margin-left: -20px;*/
+}
+
+.menu-caller {
+    position: fixed;
+    width: 1%;
+    height: 100%;
+    top:0;
+    left: 0;
+    z-index: 9;
+}

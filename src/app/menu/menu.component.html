@@ -1,0 +1,10 @@
+<div class="sidenav" (mouseleave)="menu = false" [class.hide]="!menu" [class.show]="menu">
+  <a class="closebtn" (click)="menu = false">&times;</a>
+  <a routerLink="/dashboard" (click)="menu = false"><i class="glyphicon glyphicon-stats"></i> Dashboard</a>
+  <a routerLink="/notification" (click)="menu = false"><i class="glyphicon glyphicon-envelope"></i> Notifiche</a>
+  <a href="http://www.ifmcommunications.it/" target="_blank"><i class="glyphicon glyphicon-globe"></i> IFM Homepage</a>
+  <a (click)="menu = false; logout()" class="logout"><i class="glyphicon glyphicon-log-out"></i> logout</a>
+</div>
+
+<div class="menu-logo" (click)="menu = true">&#9776; IFM pocket</div>
+<div class="menu-caller" (mouseover)="menu = true"></div>

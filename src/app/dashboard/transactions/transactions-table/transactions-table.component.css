@@ -1,0 +1,16 @@
+.details-alert {
+    position:fixed;
+    z-index: 2;
+    top:10%;
+    left: 15%;
+    width:70%;
+}
+
+#table-box {
+    height: 55vh;
+    overflow-y: scroll;
+}
+
+#table-box::-webkit-scrollbar {
+    display: none;
+}

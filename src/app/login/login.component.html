@@ -1,0 +1,18 @@
+<div class="fullscreen">
+  <div class="container-fluid">
+    <div class="card card-container">
+        <div class="logo-container">
+          <img class="logo-img" src="assets/logo2.png" />
+        </div>
+        <form class="form-signin">
+            <span class="reauth-email">{{error}}</span>
+            <input #address [(ngModel)]="email" name="email" type="email" class="form-control" placeholder="Indirizzo" required autofocus>
+            <input #password [(ngModel)]="pass" type="password" name="password" class="form-control" placeholder="Password" required>
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" (click)="tryLogin()">Sign in</button>
+        </form>
+        <a href="http://helpdesk.phones.it/hd/hdadefault.asp" target="_blanck" class="forgot-password">
+            Forgot the password?
+        </a>
+    </div>
+  </div>
+</div>

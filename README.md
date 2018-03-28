@@ -44,3 +44,5 @@ In qualsiasi area dell’applicazione cliccando sul logo in alto a sinistra o sp
 Librerie esterne<br/>
 	ngx-cookie-service – ng2-google-charts – bootstrap 3 - angular-in-memory-web-api
 
+Build command
+ng build --prod --output-path ./docs -bh /PocketIFM/

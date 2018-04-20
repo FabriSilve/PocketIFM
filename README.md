@@ -1,5 +1,7 @@
 Il Progetto
 
+<a href="https://fabrisilve.github.io/PocketIFM" target="_blanlk">visit it</a>
+
 Pocket IFM<br/>
 Lo scopo del progetto svolto durante il tirocinio era lo sviluppo di un applicativo che esemplificasse l’uso delle Web Api messe a disposizione dall’azienda. 
 In seguito sono elencate le funzionalità dell’applicativo web sviluppato durante il tirocinio.

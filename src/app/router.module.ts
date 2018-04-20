@@ -8,6 +8,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 const routes: Routes = [
   { path: 'notification', component: NotificationComponent},
+  { path : 'notification/:id', component : NotificationComponent },
   { path: 'dashboard', component: DashboardComponent},
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },

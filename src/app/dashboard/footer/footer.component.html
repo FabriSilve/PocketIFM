@@ -1,27 +1,48 @@
-<div class="footer row">
+<div *ngIf="contactsShow" class="footer row">
+  <span class="col-xs-2 col-xs-offset-1">
+    <a href="http://www.facebook.com" target="_blank"><i class="fa fa-facebook-f"></i></a>
+  </span>
+  <span class="col-xs-2">
+    <a href="http://plus.google.com" target="_blank"><i class="fa fa-google-plus"></i></a>
+  </span>
+  <span class="col-xs-2">
+    <a href="http://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a> 
+  </span>
+  <span class="col-xs-2">
+    <a href="http://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a> 
+  </span>
+  <span class="col-xs-2">
+    <a href="http://www.youtube.com" target="_blank"><i class="fa fa-youtube"></i></a>
+  </span>
+</div>
+<div id="main" class="footer row">
   <span class="col-xs-4" id="first">
-     © IFM Infomaster 2018
+     © IFM <i id="copyright">Infomaster</i> 2018
   </span>
   <span class="col-xs-4" id="second">
     <div class="row">
       <span class="col-xs-2 col-xs-offset-1">
-        <a><i class="fa fa-facebook-f"></i></a>
+        <a href="http://www.facebook.com" target="_blank"><i class="fa fa-facebook-f"></i></a>
       </span>
       <span class="col-xs-2">
-        <a><i class="fa fa-google-plus"></i></a>
+        <a href="http://plus.google.com" target="_blank"><i class="fa fa-google-plus"></i></a>
       </span>
       <span class="col-xs-2">
-        <a><i class="fa fa-linkedin"></i></a> 
+        <a href="http://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a> 
       </span>
       <span class="col-xs-2">
-        <a><i class="fa fa-twitter"></i></a> 
+        <a href="http://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a> 
       </span>
       <span class="col-xs-2">
-        <a><i class="fa fa-youtube"></i></a>
+        <a href="http://www.youtube.com" target="_blank"><i class="fa fa-youtube"></i></a>
       </span>
     </div> 
   </span>
+  <span class="tab col-xs-4"><a (click)="contactsShow = !contactsShow;">
+    <i *ngIf="!contactsShow">contacts</i><i *ngIf="contactsShow">hide</i>
+  </a></span>
   <span class="col-xs-4" id="third">
     <a>privacy policy</a>
   </span>
 </div>
+

@@ -25,7 +25,53 @@
     padding-right: 10px;
 }
 
+.tab {
+    display: none;
+    text-align: center;
+}
+
 .footer #third {
     text-align: right;
     padding-right: 20px;
+}
+
+#icons {
+    display: none;
+}
+
+#copyright {
+    font-style: normal;
+}
+
+@media only screen and (max-width: 640px) {
+    #main {
+        font-size: 80%;
+    }
+
+    .footer {
+        height: 45px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    #contact-label {
+        display: block;
+    }
+
+    .footer {
+        padding-top: 10px;
+        height: 35px;
+    }
+
+    #second {
+        display: none;
+    }
+
+    #copyright {
+        display: none;
+    }
+
+    .tab {
+        display: block;
+    }
 }

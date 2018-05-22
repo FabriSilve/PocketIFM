@@ -1,5 +1,4 @@
 <menu></menu>
-
 <div [ngStyle]="containerStyle()">
   <div class="row" >
     <div  class="col-md-5 margin-min" [class.height-zero]='notifySelected == null'>
@@ -19,12 +18,11 @@
         <div class="well well-sm margin-min bg-light" style="padding: 20px" *ngIf="notifySelected">
           <h5 class="text-right">{{notifySelected.date | date: "HH:mm - MMMM d, y"}}</h5>
           <h3>
-            <strong 
-            [class.text-default]="notifySelected.type=='default'"  
-            [class.text-success]="notifySelected.type=='success'" 
-            [class.text-warning]="notifySelected.type=='warning'" 
-            [class.text-danger]="notifySelected.type=='danger'">
-              {{notifySelected.title}}
+            <strong [class.text-default]="notifySelected.type=='default'"  
+              [class.text-success]="notifySelected.type=='success'" 
+              [class.text-warning]="notifySelected.type=='warning'" 
+              [class.text-danger]="notifySelected.type=='danger'">
+                {{notifySelected.title}}
             </strong>
           </h3>
           <blockquote>{{notifySelected.body}}</blockquote>

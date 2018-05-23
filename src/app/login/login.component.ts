@@ -15,8 +15,8 @@ import { UserDataService } from '../service/user-data.service';
 export class LoginComponent implements OnInit {
 
   public error : string = " ";
-  public email : string;
-  public pass : string;
+  public email : string = "acme@mail.com";
+  public pass : string = "Password1!";
 
   constructor(
     private userDataService : UserDataService,
